@@ -41,8 +41,8 @@ function addGamesToPage(games) {
         // about each game
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
-        gameCard.innerHTML = `<img src="${games[i].img}" />
-        <h4>${games[i].description}</h4>
+        gameCard.innerHTML = `<img class="game-img" src="${games[i].img}" />
+        <h4 class>${games[i].description}</h4>
         <p>Backers: ${games[i].backers}</p>
         `;
     
@@ -67,11 +67,12 @@ const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
 const totalContributions = GAMES_JSON.reduce((acc, game) => {
-    acc + game.backers}, 0);
+    return acc + game.backers}, 0);            
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
-contributionsCard.innerHTML = `${totalContributions.toLocaleString('en-US')}`;                  
-
+contributionsCard.innerHTML = `${totalContributions.toLocaleString('en-US')}`;    
+              
+     
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 
@@ -80,7 +81,7 @@ const totalAmountRaised = GAMES_JSON.reduce((acc, game) => {
 }, 0);
 
 // set inner HTML using template literal
-raisedCard.innerHTML = `${totalAmountRaised.toLocaleString('en-US')}`
+raisedCard.innerHTML = `${"$"+totalAmountRaised.toLocaleString('en-US')}`
 
 
 // grab number of games card and set its inner HTML
@@ -101,10 +102,12 @@ function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have not yet met their goal
-
+    let unFunded = games.filter((game) => {
+        return game.pledged < game.goal;
+    });
 
     // use the function we previously created to add the unfunded games to the DOM
-
+    addGamesToPage(unFunded);
 }
 
 // show only games that are fully funded
