@@ -161,7 +161,7 @@ let count = unfunded.reduce((acc, game) => {
 }, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
-const unfundedGamesMessage = `There ${count === 1 ? 'is' : 'are'} ${count} unfunded game${count === 1 ? '' : 's'}.`;
+const unfundedGamesMessage = `A total of ${"$"+totalAmountRaised.toLocaleString('en-US')} has been raised for ${totalGames} games. Currently, there ${count === 1 ? 'is' : 'are'} ${count} unfunded game${count === 1 ? '' : 's'}. We need your help to fund these amazing games.`;
 
 // create a new DOM element containing the template string and append it to the description container
 let newElem = document.createElement("div");
@@ -181,18 +181,18 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
     
 // use destructuring and the spread operator to grab the first and second games
-const [firstGame, secondGame, ...remainingGames] = sortedGames;
-
-
+const [firstGame, secondGame, ...remainingGames] = sortedGames; 
+const {name: name, description: desc, pledged: pl, goal: goal, backers: bkrs, img: img}  = firstGame;
+const {name: name2, description : desc2, pledged: pl2, goal: goal2, backers: bkrs2, img: img2}  = secondGame;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 let topFunded = document.createElement("div");
-topFunded.innerHTML = firstGame.name;
+topFunded.innerHTML = name;
 firstGameContainer.appendChild(topFunded);
 
 
 // do the same for the runner up item
 let secondTop = document.createElement("div");       
-secondTop.innerHTML = secondGame.name; 
+secondTop.innerHTML = name2; 
 secondGameContainer.appendChild(secondTop);                          
 
