@@ -36,7 +36,7 @@ function addGamesToPage(games) {
          
         // add the class game-card to the list
         gameCard.classList.add("game-card");
-        
+    
         // set the inner HTML using a template literal to display some info 
         // about each game
         // TIP: if your images are not displaying, make sure there is space
@@ -91,6 +91,7 @@ const totalGames = GAMES_JSON.length;
 
 gamesCard.innerHTML = `${totalGames.toLocaleString('en-US')}`;
 
+
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
  * total number of contributions, amount donated, and number of games on the site.
@@ -100,29 +101,32 @@ gamesCard.innerHTML = `${totalGames.toLocaleString('en-US')}`;
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
-
     // use filter() to get a list of games that have not yet met their goal
     let unFunded = GAMES_JSON.filter((game) => {
         return game.pledged < game.goal;
     });
-     
+
     // use the function we previously created to add the unfunded games to the DOM
    addGamesToPage(unFunded);
+   return unFunded;
+  
 }
-
+console.log(filterUnfundedOnly());
 
 // show only games that are fully funded
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have met or exceeded their goal
-    let funded = GAMES_JSON.filter((game) => {
+    let funded = GAMES_JSON.filter(game => {
         return game.pledged >= game.goal;
     });
-
+    console.log(funded);
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(funded);
+    return funded;
 }
+
 
 // show all games
 function showAllGames() {
@@ -138,7 +142,9 @@ const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
 // add event listeners with the correct functions to each button
-
+unfundedBtn.addEventListener("click", filterUnfundedOnly);
+fundedBtn.addEventListener("click", filterFundedOnly);
+allBtn.addEventListener("click", showAllGames);
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
@@ -149,12 +155,18 @@ const allBtn = document.getElementById("all-btn");
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+let unfunded = filterUnfundedOnly();
+let count = unfunded.reduce((acc, game) => {
+    return acc + 1;
+}, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+const unfundedGamesMessage = `There ${count === 1 ? 'is' : 'are'} ${count} unfunded game${count === 1 ? '' : 's'}.`;
 
 // create a new DOM element containing the template string and append it to the description container
+let newElem = document.createElement("div");
+newElem.innerHTML = unfundedGamesMessage;
+descriptionContainer.appendChild(newElem);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -167,11 +179,20 @@ const secondGameContainer = document.getElementById("second-game");
 const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
-     
+    
 // use destructuring and the spread operator to grab the first and second games
+const [firstGame, secondGame, ...remainingGames] = sortedGames;
+
+
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+let topFunded = document.createElement("div");
+topFunded.innerHTML = firstGame.name;
+firstGameContainer.appendChild(topFunded);
+
 
 // do the same for the runner up item
-                                     
+let secondTop = document.createElement("div");       
+secondTop.innerHTML = secondGame.name; 
+secondGameContainer.appendChild(secondTop);                          
 
