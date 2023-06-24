@@ -3,7 +3,7 @@
 body {
     font-family: 'Cabin';
     background-color: #758190;
-    
+
 }
 
 #tentacles {
@@ -23,7 +23,7 @@ body {
 .stats-container {
     display: flex;
     align-items: center;
-    
+
 }
 .stats-container:hover {
     cursor: pointer;
