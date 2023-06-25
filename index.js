@@ -159,7 +159,7 @@ let count = unfunded.reduce((acc, game) => {
 }, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
-const unfundedGamesMessage = `A total of ${"$"+totalAmountRaised.toLocaleString('en-US')} has been raised for ${totalGames} games. Currently, there ${count === 1 ? 'is' : 'are'} ${count} unfunded game${count === 1 ? '' : 's'}. We need your help to fund these amazing games.`;
+const unfundedGamesMessage = `A total of ${"$"+totalAmountRaised.toLocaleString('en-US')} has been raised for ${totalGames} games. Currently, there ${count === 1 ? 'is' : 'are'} ${count} unfunded game${count === 1 ? '' : 's'}. We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
 let newElem = document.createElement("div");
