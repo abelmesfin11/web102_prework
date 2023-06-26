@@ -38,6 +38,8 @@ GIF created with LICECap
 
 Describe any challenges encountered while building the app.
 
+I had trouble trying to compress the gif walkthrough because I couldn't add to it github if it is above 10MB so I had to be fast and try to capture the main features of the app while recording.
+
 ## License
 
     Copyright [yyyy] [name of copyright owner]
