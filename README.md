@@ -24,8 +24,7 @@ Added a color and some other features to the three bottons, which are 'show unfu
 
 Here's a walkthrough of implemented features:
 
-<img src='https://github.com/abelmesfin11/web102_prework/assets/119023930/6efa50a8-13b4-4468-b3f4-3fcae5605a49
-' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...
