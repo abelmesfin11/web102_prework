@@ -22,12 +22,13 @@ Added a color and some other features to the three bottons, which are 'show unfu
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented features:
+Here's a walkthrough of implemented features: ![prework walkthrough](https://github.com/abelmesfin11/web102_prework/assets/119023930/fb35ca26-73b9-4e7d-b1fe-59a2f0162f30)
+
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...
+GIF created with LICECap
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
