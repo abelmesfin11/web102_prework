@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [x] List anything else that you can get done to improve the app functionality!
-Added a color and some other features to the three bottons, which are 'show unfunded only', 'show funded only' and 'show all games'.
+Added a color and hover features to style.css to make the three bottons, which are 'show unfunded only', 'show funded only' and 'show all games', more appealing.
 
 ## Video Walkthrough
 
